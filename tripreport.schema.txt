@@ -1,0 +1,35 @@
+Trip Report {
+
+	Substance {
+		combinations
+		dosage
+	}
+
+	Set {
+		mindset: {
+			emotion
+		}
+		bodyset: {
+			energy level
+			body weight
+		}
+	}
+
+	Setting {
+		who are you with
+		what are you doing
+		when is it
+		where are you
+		why are you there
+	}
+
+	Description {
+		intensity
+		description
+	}
+
+	Afterglow {
+		
+	}
+
+}
