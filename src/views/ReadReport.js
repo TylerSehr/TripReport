@@ -12,9 +12,10 @@ const ReadReport = props => {
         summary:''}
     const [trip, setTrip] = useState(initialState)
     useEffect(() => {
-        axios.get(`/api/trip/${props._id}`, trip)
+        axios.get(`/api/trip/${props.id}`, trip)
         .then(res => {
             setTrip(res.data)
+            console.log(res.data)
         })
         .catch(err => console.log(err.response))
     }, [])

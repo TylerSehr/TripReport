@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 let triplist = [
-	'hah'
+	
 ]
 
 router.get('/trips', (req, res) => {
