@@ -24,8 +24,8 @@ const MakeReport = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('handlesubmit was hit')
-        trip = TripReport.buildTripReport(trip)
-        axios.post('/api/submit-trip', trip)
+        let newTrip = TripReport.buildTripReport(trip)
+        axios.post('/api/submit-trip', newTrip)
         .then(res => {
             console.log(res.data)
             navigate('/reports')
