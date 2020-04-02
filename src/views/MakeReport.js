@@ -43,25 +43,25 @@ const MakeReport = () => {
     return (
         <div>
             <Link to='/reports'>Back to reports</Link>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input name='title' type='text'/>
                 <label>substance</label>
-                <select onChange={e => handleChange(e)} name='substance'>
+                <select onChange={handleChange} name='substance'>
                     <option value='other'>Other</option>
                     <option value='DMT'>DMT/Ayahuasca</option>
-                    <option value='mescalin'>mescalin/peyote</option>
+                    <option value='mescaline'>mescaline/peyote</option>
                     <option value='LSD'>LSD/acid</option>
                     <option value='psilocybin'>psilocybin/mushrooms</option>
                 </select>
                 <label>intensity</label>
-                <select onChange={e => handleChange(e)} name='intensity'>
+                <select onChange={handleChange} name='intensity'>
                     <option value='light'>light</option>
                     <option value='moderate'>moderate</option>
                     <option value='heavy'>heavy</option>
                 </select>
                 <label>setting</label>
-                <select onChange={e => handleChange(e)} name='setting'>
+                <select onChange={handleChange} name='setting'>
                     <option value='other'>other</option>
                     <option value='private'>Private: indoors, few if any people around</option>
                     <option value='public'>Public: parties, festivals, grocery stores ect</option>
