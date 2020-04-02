@@ -14,8 +14,4 @@ router.post('/submit-tripreport', (req, res) => {
 	res.sendStatus(200)
 })
 
-router.post('/get-by-filter', (req, res) => {
-	let filter = 
-})
-
 module.exports = router

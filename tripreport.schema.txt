@@ -29,6 +29,10 @@ Trip Report {
 	}
 
 	Afterglow {
+
+	}
+
+	Insights {
 		
 	}
 

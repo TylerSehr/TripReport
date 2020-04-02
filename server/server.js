@@ -3,20 +3,15 @@ const app = express()
 const server = require('http').createServer(app)
 
 const bodyParser = require('body-parser');
+const reportRouter = require('./routers/report.router')
 
-
-// let chatServer = new ChatServer(server)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-// app.get('/chat', (req, res) => {
-// 	console.log(chatServer.chatStream);
-	
-// 	res.send(chatServer.chatStream)
-// })
+app.use('/api', reportRouter)
 
 
 app.use(express.static('build'))
