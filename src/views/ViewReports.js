@@ -25,10 +25,11 @@ const ViewReports = () => {
                     
                     return(
                         <div key={idx}>
-                            <h2>{trip.trip.title}</h2>
-                            <span>{trip.trip.substance}</span>
-                            <span>{trip.trip.intensity}</span>
-                            <span>{trip.trip.setting}</span>
+                            <h2>{trip.title}</h2>
+                            <span>{trip.substance.substance}</span>
+                            <span>{trip.substance.dosage}</span>
+                            <span>{trip.description.intensity}</span>
+                            <span>{trip.setting}</span>
                             <Link to={`/reports/${idx}`}>Read More</Link>
                         </div>
                     )

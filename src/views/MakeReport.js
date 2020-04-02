@@ -77,11 +77,11 @@ const MakeReport = () => {
                 <input name='set' onChange={handleChange} type='text'/>
                 <label>Summary</label>
                 <input name='summary' onChange={handleChange} type='text'/>
-                <input type='submit'/>
                 <label>insights</label>
                 <input name='insights' onChange={handleChange} type='text'/>
                 <label>Afterglow</label>
                 <input name='afterglow' onChange={handleChange} type='text'/>
+                <input type='submit'/>
             </form>
         </div>
     )
