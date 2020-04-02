@@ -5,17 +5,13 @@ let triplist = [
 	'hah'
 ]
 
-router.get('/get-all', (req, res) => {
+router.get('/trips', (req, res) => {
 	res.send(triplist)
 })
 
-router.post('/submit-tripreport', (req, res) => {
+router.post('/submit-trip', (req, res) => {
 	triplist.push(req.body)
 	res.sendStatus(200)
-})
-
-router.post('/get-by-filter', (req, res) => {
-	let filter = 
 })
 
 module.exports = router

@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import {Router} from '@reach/router'
 import MakeReport from './views/MakeReport';
 import ViewReports from './views/ViewReports';

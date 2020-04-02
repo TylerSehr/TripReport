@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import {Link, navigate} from '@reach/router';
+import TripReport from '../classes/trip-report.class'
 
 const MakeReport = () => {
     const initialState = { 
@@ -23,7 +24,8 @@ const MakeReport = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('handlesubmit was hit')
-        axios.post('/api/submit-trip', trip)
+        let newTrip = TripReport.buildTripReport(trip)
+        axios.post('/api/submit-trip', newTrip)
         .then(res => {
             console.log(res.data)
             navigate('/reports')
