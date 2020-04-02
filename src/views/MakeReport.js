@@ -47,14 +47,14 @@ const MakeReport = () => {
     return (
         <div>
             <Link to='/reports'>Back to reports</Link>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input name='title' type='text' onChange={handleChange}/>
                 <label>substance</label>
                 <select onChange={handleChange} name='substance'>
                     <option value='other'>Other</option>
                     <option value='DMT'>DMT/Ayahuasca</option>
-                    <option value='mescalin'>mescalin/peyote</option>
+                    <option value='mescaline'>mescaline/peyote</option>
                     <option value='LSD'>LSD/acid</option>
                     <option value='psilocybin'>psilocybin/mushrooms</option>
                 </select>

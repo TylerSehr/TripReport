@@ -21,7 +21,8 @@ const ViewReports = () => {
             <Link to='/reports/compose'>compose</Link>
             {
                 trips.map((trip, idx) =>{
-                    console.log(trip)
+                    console.log(trip);
+                    
                     return(
                         <div key={idx}>
                             <h2>{trip.trip.title}</h2>
