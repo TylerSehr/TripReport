@@ -8,12 +8,15 @@ const ViewReports = () => {
     useEffect(() => {
         axios.get('/api/trips', trips)
         .then(res => {
+            console.log(res.data)
             setTrips(res.data)
+            console.log(trips)
         })
         .catch(err => console.log(err.response))
     }, [])
 
     return (
+        
         <div>
             <Link to='/reports/compose'>compose</Link>
             {

@@ -10,15 +10,19 @@ const MakeReport = () => {
         intensity: '',
         setting:'', 
         dosage:'', 
-        summary:''}
+        set: '',
+        summary:'',
+        insights: '',
+        afterglow: ''
+    }
     const [trip, setTrip] = useState(initialState)
     const [errors, setErrors] = useState([])
     const handleChange = (e) => {
-        console.log(trip)
         setTrip({
             ...trip,
             [e.target.name]: e.target.value
         })
+        console.log(trip)
     }
 
     const handleSubmit = (e) => {
@@ -45,7 +49,7 @@ const MakeReport = () => {
             <Link to='/reports'>Back to reports</Link>
             <form onSubmit={handleSubmit}>
                 <label>Title</label>
-                <input name='title' type='text'/>
+                <input name='title' type='text' onChange={handleChange}/>
                 <label>substance</label>
                 <select onChange={handleChange} name='substance'>
                     <option value='other'>Other</option>
@@ -68,9 +72,16 @@ const MakeReport = () => {
                     <option value='nature'>Nature</option>
                 </select>
                 <label>Dosage</label>
-                <input name='dosage' type='text'/>
-                <label name='summary' type='text'>Summary</label>
+                <input name='dosage' type='text' onChange={handleChange}/>
+                <label>set</label>
+                <input name='set' onChange={handleChange} type='text'/>
+                <label>Summary</label>
+                <input name='summary' onChange={handleChange} type='text'/>
                 <input type='submit'/>
+                <label>insights</label>
+                <input name='insights' onChange={handleChange} type='text'/>
+                <label>Afterglow</label>
+                <input name='afterglow' onChange={handleChange} type='text'/>
             </form>
         </div>
     )
