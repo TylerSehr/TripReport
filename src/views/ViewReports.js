@@ -26,7 +26,7 @@ const ViewReports = () => {
                             <span>{trip.trip.substance}</span>
                             <span>{trip.trip.intensity}</span>
                             <span>{trip.trip.setting}</span>
-                            <Link to={`reports/${trips._id}`}>Read More</Link>
+                            <Link to={`/reports/${idx}`}>Read More</Link>
                         </div>
                     )
                 })
