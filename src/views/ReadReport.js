@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from '@reach/router'
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ const ReadReport = props => {
         summary:''}
     const [trip, setTrip] = useState(initialState)
     useEffect(() => {
-        axios.get(`/api/trip/${props._id}`, trips)
+        axios.get(`/api/trip/${props._id}`, trip)
         .then(res => {
             setTrip(res.data)
         })
