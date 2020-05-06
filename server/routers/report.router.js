@@ -14,4 +14,4 @@ router.post('/submit-trip', (req, res) => {
 	res.sendStatus(200)
 })
 
-module.exports = router
+module.exports = routerg

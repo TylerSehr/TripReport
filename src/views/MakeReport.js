@@ -1,17 +1,17 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
-import {Link, navigate} from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import TripReport from '../classes/trip-report.class'
 
 const MakeReport = () => {
-    const initialState = { 
-        title:'', 
-        substance:'', 
-        intensity: '',
-        setting:'', 
-        dosage:'', 
+    const initialState = {
+        title: '',
+        substance: 'other',
+        intensity: 'light',
+        setting: 'other',
+        dosage: '',
         set: '',
-        summary:'',
+        summary: '',
         insights: '',
         afterglow: ''
     }
@@ -29,27 +29,64 @@ const MakeReport = () => {
         e.preventDefault()
         console.log('handlesubmit was hit')
         let newTrip = TripReport.buildTripReport(trip)
-        axios.post('/api/submit-trip', newTrip)
-        .then(res => {
-            console.log(res.data)
-            navigate('/reports')
-        })
-        .catch(err=>{
-            const errorResponse = err.response.data.errors; // Get the errors from err.response.data
-            const errorArr = []; // Define a temp error array to push the messages in
-            for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                errorArr.push(errorResponse[key].message)
-            }
-            // Set Errors
-            setErrors(errorArr);
-        }) 
+        if (newTrip) {
+            axios.post('/api/submit-trip', newTrip)
+                .then(res => {
+                    console.log(res.data)
+                    navigate('/reports')
+                })
+                .catch(err => {
+                    const errorResponse = err.response.data.errors; // Get the errors from err.response.data
+                    const errorArr = []; // Define a temp error array to push the messages in
+                    for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+                        errorArr.push(errorResponse[key].message)
+                    }
+                    // Set Errors
+                    setErrors(errorArr);
+                })
+        }
+        else {
+            alert('finish the form bozo!')
+        }
     }
+
+    const submitPremade = (e) => {
+        e.preventDefault()
+        console.log('premade submitted');
+        let yop = {
+            title: 'zog!',
+            substance: 'zog!',
+            intensity: 'zog!',
+            setting: 'zog!',
+            dosage: 'zog!',
+            set: 'zog!',
+            summary: 'zog!',
+            insights: 'zog!',
+            afterglow: 'zog!'
+        }
+        let newTrip = TripReport.buildTripReport(yop)
+        axios.post('/api/submit-trip', newTrip)
+            .then(res => {
+                console.log(res.data)
+                navigate('/reports')
+            })
+            .catch(err => {
+                const errorResponse = err.response.data.errors; // Get the errors from err.response.data
+                const errorArr = []; // Define a temp error array to push the messages in
+                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+                    errorArr.push(errorResponse[key].message)
+                }
+                // Set Errors
+                setErrors(errorArr);
+            })
+    }
+
     return (
         <div>
             <Link to='/reports'>Back to reports</Link>
             <form onSubmit={handleSubmit}>
                 <label>Title</label>
-                <input name='title' type='text' onChange={handleChange}/>
+                <input name='title' type='text' onChange={handleChange} />
                 <label>substance</label>
                 <select onChange={handleChange} name='substance'>
                     <option value='other'>Other</option>
@@ -72,16 +109,17 @@ const MakeReport = () => {
                     <option value='nature'>Nature</option>
                 </select>
                 <label>Dosage</label>
-                <input name='dosage' type='text' onChange={handleChange}/>
+                <input name='dosage' type='text' onChange={handleChange} />
                 <label>set</label>
-                <input name='set' onChange={handleChange} type='text'/>
+                <input name='set' onChange={handleChange} type='text' />
                 <label>Summary</label>
-                <input name='summary' onChange={handleChange} type='text'/>
+                <input name='summary' onChange={handleChange} type='text' />
                 <label>insights</label>
-                <input name='insights' onChange={handleChange} type='text'/>
+                <input name='insights' onChange={handleChange} type='text' />
                 <label>Afterglow</label>
-                <input name='afterglow' onChange={handleChange} type='text'/>
-                <input type='submit'/>
+                <input name='afterglow' onChange={handleChange} type='text' />
+                <input type='submit' />
+                <button onClick={submitPremade}>premade</button>
             </form>
         </div>
     )
